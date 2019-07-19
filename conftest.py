@@ -9,7 +9,7 @@ def pytest_addoption(parser):
     parser.addoption('--language', action='store', default="en-gb", help="Choose language")
 
 
-# фикстура browser, которая создает нам экземпляр браузера для тестов
+# фикстура browser, которая создает нам экземпляр браузера для тестов с выбором браузера и языка пользователя
 @pytest.fixture(scope="class")
 def browser(request):
     browser_name = request.config.getoption("browser_name")  # тянем браузер из параметра CLI
@@ -36,7 +36,7 @@ def browser(request):
 
 
 """
-#фикстура browser, которая создает нам экземпляр браузера для тестов
+#фикстура browser, которая создает нам экземпляр браузера для тестов (базовая)
 @pytest.fixture(scope="function")
 def browser():
     print("\nstart browser for test..")
